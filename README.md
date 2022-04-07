@@ -1,23 +1,9 @@
 
 # APP-LOCATING-AVAILABLE-RESTAURANTS-JAVA
 
-<p align="center">
-    Simples Back End de uma aplicação de fast food. Nela é possível localizar os locais mais próximos do usuário dado uma latitude e longitude, encontrar o local mais próximo e que realize entregas no area do usuario, criar novos locais e realizar, buscar por id ou documento.
+<p>
+Simples Back End de uma aplicação de fast food. Nela é possível localizar os locais mais próximos do usuário dado uma latitude e longitude, encontrar o local mais próximo e que realize entregas no area do usuario, criar novos locais e realizar, buscar por id ou documento.
 </p>
-          
-
-Tabela de conteúdos
-=================
-   * [Features](#Sobre)
-   * [Pré-requisitos](#tabela-de-conteudo)
-   * [Iniciando o projeto pela primeira vez](#instalacao)
-   * [Detalhes Tecnicos](#testes)
-   * [Documentação da API](#tecnologias)   
-   * [Tecnologias](#tecnologias)
-   * [Apêndice](#testes)
-   * [Autor](#testes)
-   * [Licença](#testes)
-   
 
 ### :pushpin: Features
 
