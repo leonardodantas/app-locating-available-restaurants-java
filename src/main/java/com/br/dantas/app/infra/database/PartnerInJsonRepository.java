@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.io.FileReader;
@@ -30,7 +29,7 @@ public class PartnerInJsonRepository implements IPartnerRepository {
 
     private final JSONParser parser;
     private final ObjectMapper objectMapper;
-    private static String PDVS = "pdvs";
+    private final static String PDVS = "pdvs";
     private final Gson gson;
 
     @Value("${location.file.json}")
@@ -72,9 +71,9 @@ public class PartnerInJsonRepository implements IPartnerRepository {
 
     @Override
     public Page<Partner> findAll(final int page, final int size) {
-        Pageable pageable = PageRequest.of(page, size);
+        final var pageable = PageRequest.of(page, size);
         final var partners = this.findAll();
-        return new PageImpl(partners.stream().toList(), pageable, partners.size());
+        return new PageImpl<Partner>(partners.stream().toList(), pageable, partners.size());
     }
 
     @Override
@@ -95,7 +94,7 @@ public class PartnerInJsonRepository implements IPartnerRepository {
     }
 
     private void saveInJson(final Partner partner) {
-        var partners = this.findAll();
+        final var partners = this.findAll();
         partners.add(partner);
         final var pdvs = new Pdvs(partners);
         final var json = gson.toJsonTree(pdvs).toString();
@@ -117,13 +116,11 @@ public class PartnerInJsonRepository implements IPartnerRepository {
     }
 
     private JSONObject getJsonObject()  {
-        var jsonObject = new JSONObject();
         try {
-            jsonObject = (JSONObject) parser.parse(new FileReader(
+            return (JSONObject) parser.parse(new FileReader(
                     this.locationFile));
         } catch (IOException | ParseException e) {
             throw new RuntimeException(e.getMessage());
         }
-        return jsonObject;
     }
 }

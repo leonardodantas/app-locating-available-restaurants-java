@@ -26,14 +26,14 @@ public class Partner {
     @GeoSpatialIndexed(type = GeoSpatialIndexType.GEO_2DSPHERE)
     private Address address;
 
-    private Partner(String tradingName, String ownerName, CoverageArea coverageArea, Address address) {
+    private Partner(final String tradingName, final String ownerName, final CoverageArea coverageArea, final Address address) {
         this.tradingName = tradingName;
         this.ownerName = ownerName;
         this.coverageArea = coverageArea;
         this.address = address;
     }
 
-    private Partner(String id, String ownerName, String tradingName, String document, CoverageArea coverageArea, Address address) {
+    private Partner(final String id, final String ownerName, final String tradingName, final String document, final CoverageArea coverageArea, final Address address) {
         this.id = id;
         this.ownerName = ownerName;
         this.tradingName = tradingName;
@@ -42,11 +42,11 @@ public class Partner {
         this.address = address;
     }
 
-    public static Partner of(String tradingName, String ownerName, CoverageArea coverageArea, Address address){
+    public static Partner of(final String tradingName, final String ownerName, final CoverageArea coverageArea, final Address address){
         return new Partner(tradingName, ownerName, coverageArea, address);
     }
 
-    public Partner withId(String id) {
+    public Partner withId(final String id) {
         return new Partner(
                 id,
                 this.ownerName,

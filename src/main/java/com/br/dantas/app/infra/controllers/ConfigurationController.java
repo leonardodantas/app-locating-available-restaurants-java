@@ -35,7 +35,7 @@ public class ConfigurationController {
             @ApiResponse(code = HttpURLConnection.HTTP_CREATED, message = "Success"),
             @ApiResponse(code = HttpURLConnection.HTTP_BAD_REQUEST, message = "Error when update configuration", response = ErrorResponse.class)
     })
-    public void update(@Valid @RequestBody ConfigRequestJSON body){
+    public void update(@Valid @RequestBody final ConfigRequestJSON body){
         this.updateConfig.execute(body);
     }
 

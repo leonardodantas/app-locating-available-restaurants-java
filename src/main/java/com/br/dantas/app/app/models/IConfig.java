@@ -4,4 +4,5 @@ public interface IConfig {
 
     double maxDistance();
     int quantityPartners();
+
 }

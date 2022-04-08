@@ -10,11 +10,11 @@ import java.util.UUID;
 public record ErrorResponse(String uuid, HttpStatus httpStatus,
                             LocalDateTime date, Collection<MessageError> errors) {
 
-    public static ErrorResponse of(HttpStatus httpStatus, MessageError message) {
+    public static ErrorResponse of(final HttpStatus httpStatus, final MessageError message) {
         return new ErrorResponse(UUID.randomUUID().toString(), httpStatus, LocalDateTime.now(), Collections.singletonList(message));
     }
 
-    public static ErrorResponse of(HttpStatus httpStatus, Collection<MessageError> message) {
+    public static ErrorResponse of(final HttpStatus httpStatus, final Collection<MessageError> message) {
         return new ErrorResponse(UUID.randomUUID().toString(), httpStatus, LocalDateTime.now(), message);
     }
 

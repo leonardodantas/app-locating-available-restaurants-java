@@ -18,7 +18,7 @@ public class UpdateConfig implements IUpdateConfig {
 
     @Override
     public void execute(final IConfig config) {
-        Config configDomain = ConfigConverter.toDomain(config);
+        final var configDomain = ConfigConverter.toDomain(config);
         configRepository.save(configDomain);
     }
 }

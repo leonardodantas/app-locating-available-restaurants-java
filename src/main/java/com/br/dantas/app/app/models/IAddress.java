@@ -1,8 +1,9 @@
 package com.br.dantas.app.app.models;
 
-import java.util.ArrayList;
+import java.util.Collection;
 
 public interface IAddress {
 
-    ArrayList<Double> coordinates();
+    Collection<Double> coordinates();
+
 }

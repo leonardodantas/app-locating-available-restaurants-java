@@ -6,9 +6,9 @@ public enum ErrorsException {
     PARTNER_DOCUMENT_NOT_FOUND("Partner document not found"),
     NO_PARTNERS_FOUND_FOR_THE_CURRENT_AREA("No partners found for the current area");
 
-    private String message;
+    private final String message;
 
-    ErrorsException(String message) {
+    ErrorsException(final String message) {
         this.message = message;
     }
 

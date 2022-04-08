@@ -6,4 +6,5 @@ import java.util.Collection;
 public interface ICoverageArea {
 
     Collection<Collection<Collection<Collection<Double>>>> coordinates();
+
 }

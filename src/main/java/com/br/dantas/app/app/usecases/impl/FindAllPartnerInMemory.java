@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
-@Service("inMemoryFindAll")
+@Service("inJsonFindAll")
 public class FindAllPartnerInMemory implements IFIndAllPartner {
 
     private final IPartnerRepository partnerRepository;

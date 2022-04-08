@@ -30,7 +30,7 @@ public class Config {
         this.date = LocalDateTime.MIN;
     }
 
-    public static Config of(double maxDistance, int quantityPartners) {
+    public static Config of(final double maxDistance, final int quantityPartners) {
         return new Config(maxDistance, quantityPartners);
     }
 }

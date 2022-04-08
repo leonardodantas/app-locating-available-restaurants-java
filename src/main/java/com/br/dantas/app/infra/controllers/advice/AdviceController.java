@@ -19,7 +19,7 @@ public class AdviceController {
 
     private final MessageSource messageSource;
 
-    public AdviceController(MessageSource messageSource) {
+    public AdviceController(final MessageSource messageSource) {
         this.messageSource = messageSource;
     }
 

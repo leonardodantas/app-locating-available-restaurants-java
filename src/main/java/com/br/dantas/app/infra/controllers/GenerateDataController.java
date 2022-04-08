@@ -25,7 +25,7 @@ public class GenerateDataController {
     private final IFIndAllPartner findAllPartner;
     private final IPartnerRepository partnerRepository;
 
-    public GenerateDataController(@Qualifier("inMemoryFindAll") final IFIndAllPartner findAllPartner, @Qualifier("mongoRepository")final IPartnerRepository partnerRepository) {
+    public GenerateDataController(@Qualifier("inJsonFindAll") final IFIndAllPartner findAllPartner, @Qualifier("mongoRepository")final IPartnerRepository partnerRepository) {
         this.findAllPartner = findAllPartner;
         this.partnerRepository = partnerRepository;
     }
@@ -37,7 +37,7 @@ public class GenerateDataController {
             @ApiResponse(code = HttpURLConnection.HTTP_CREATED, message = "Success")
     })
     public void execute(){
-        Collection<Partner> partners = findAllPartner.execute();
+        final var partners = findAllPartner.execute();
         partners.forEach(partnerRepository::save);
     }
 }

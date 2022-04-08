@@ -8,7 +8,7 @@ public record MessageError(String message) {
         return new MessageError(error.getMessage());
     }
 
-    public static MessageError of(FieldError field, String message) {
+    public static MessageError of(final FieldError field, final String message) {
         return new MessageError(field.getField().concat(" - ".concat(message)));
     }
 }

@@ -7,4 +7,5 @@ public interface IPartner {
     String document();
     ICoverageArea coverageArea();
     IAddress address();
+
 }

@@ -1,5 +1,6 @@
 package com.br.dantas.app.domain;
 
+import com.br.dantas.app.app.usecases.impl.CalculateDistance;
 import lombok.Getter;
 
 import java.math.BigDecimal;
@@ -22,7 +23,8 @@ public class PartnerDistance implements Comparable<PartnerDistance>{
         this.distance = distance;
     }
 
-    public static PartnerDistance of(Partner partner, BigDecimal distance) {
+    public static PartnerDistance of(Partner partner, double latitude, double longitude) {
+        final var distance = CalculateDistance.betweenLatLong(latitude, longitude, partner);
         return new PartnerDistance(partner, distance);
     }
 

@@ -2,7 +2,7 @@ package com.br.dantas.app.app.exceptions;
 
 public class FindPartnerWithAddressAndCoverageAreaException extends RuntimeException  {
 
-    public FindPartnerWithAddressAndCoverageAreaException(String message) {
+    public FindPartnerWithAddressAndCoverageAreaException(final String message) {
         super(message);
     }
 
