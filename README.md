@@ -93,7 +93,7 @@ A requisição precisa de um body com os seguintes parâmetros:
 ### Retorna detalhes de um parceiro a partir de um documento
 
 ```
-  GET /partner/document/{document}
+  Post /partner/document/{document}
 ```
 
 | Parâmetro   | Tipo       | Descrição                           |
