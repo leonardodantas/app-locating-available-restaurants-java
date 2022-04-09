@@ -1,6 +1,7 @@
 package com.br.dantas.app.infra.controllers;
 
 import com.br.dantas.app.app.repository.IPartnerRepository;
+import com.br.dantas.app.app.usecases.FormatDocumentNumber;
 import com.br.dantas.app.app.usecases.IFIndAllPartner;
 import com.br.dantas.app.domain.Partner;
 import io.swagger.annotations.Api;
@@ -37,7 +38,18 @@ public class GenerateDataController {
             @ApiResponse(code = HttpURLConnection.HTTP_CREATED, message = "Success")
     })
     public void execute(){
-        final var partners = findAllPartner.execute();
-        partners.forEach(partnerRepository::save);
+        final var partners = findAllPartner.execute().stream().toList();
+
+        partners
+                .stream().map(partner -> Partner.builder()
+                        .id(partner.getId())
+                        .document(partner.getDocument())
+                        .documentOnlyNumber(FormatDocumentNumber.getDocumentOnlyNumbers(partner.getDocument()))
+                        .tradingName(partner.getTradingName())
+                        .ownerName(partner.getOwnerName())
+                        .address(partner.getAddress())
+                        .coverageArea(partner.getCoverageArea())
+                        .build())
+                .forEach(partnerRepository::save);
     }
 }

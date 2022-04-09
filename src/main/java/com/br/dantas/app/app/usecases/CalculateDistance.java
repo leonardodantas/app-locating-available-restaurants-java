@@ -1,4 +1,4 @@
-package com.br.dantas.app.app.usecases.impl;
+package com.br.dantas.app.app.usecases;
 
 import com.br.dantas.app.domain.Partner;
 
@@ -6,11 +6,11 @@ import java.math.BigDecimal;
 
 import static java.lang.Math.*;
 
-public class CalculateDistance {
+public interface CalculateDistance {
 
-    private final static double EARTH_RADIUS = 6371.01;
+    double EARTH_RADIUS = 6371.01;
 
-    public static BigDecimal betweenLatLong(final double latitude,final double longitude,final Partner partner) {
+    static BigDecimal betweenLatLong(final double latitude,final double longitude,final Partner partner) {
         final var firstLatToRad = toRadians(latitude);
         final var secondLatToRad = toRadians(partner.getLatitude());
 

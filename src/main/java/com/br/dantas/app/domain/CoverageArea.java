@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -12,7 +13,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-public class CoverageArea {
+public class CoverageArea implements Serializable {
 
     private String type;
     private Collection<Collection<Collection<Collection<Double>>>> coordinates;

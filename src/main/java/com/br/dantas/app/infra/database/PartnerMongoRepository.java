@@ -35,7 +35,7 @@ public class PartnerMongoRepository implements IPartnerRepository {
 
     @Override
     public Optional<Partner> findByDocument(final String document) {
-        return partnerSpringDataMongo.findByDocument(document);
+        return partnerSpringDataMongo.findByDocumentOnlyNumber(document);
     }
 
     @Override

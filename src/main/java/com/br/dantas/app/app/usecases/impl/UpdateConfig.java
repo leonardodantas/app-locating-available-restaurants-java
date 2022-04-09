@@ -4,7 +4,7 @@ import com.br.dantas.app.app.converter.ConfigConverter;
 import com.br.dantas.app.app.models.IConfig;
 import com.br.dantas.app.app.repository.IConfigRepository;
 import com.br.dantas.app.app.usecases.IUpdateConfig;
-import com.br.dantas.app.domain.Config;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,6 +17,7 @@ public class UpdateConfig implements IUpdateConfig {
     }
 
     @Override
+    @CacheEvict(value = "config", allEntries = true)
     public void execute(final IConfig config) {
         final var configDomain = ConfigConverter.toDomain(config);
         configRepository.save(configDomain);

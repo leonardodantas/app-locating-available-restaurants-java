@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 @Service("inJsonFindAll")
-public class FindAllPartnerInMemory implements IFIndAllPartner {
+public class FindAllPartnerInJson implements IFIndAllPartner {
 
     private final IPartnerRepository partnerRepository;
 
-    public FindAllPartnerInMemory(@Qualifier("inJson")final IPartnerRepository partnerRepository) {
+    public FindAllPartnerInJson(@Qualifier("inJson")final IPartnerRepository partnerRepository) {
         this.partnerRepository = partnerRepository;
     }
 

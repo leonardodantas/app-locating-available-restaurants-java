@@ -1,5 +1,6 @@
 package com.br.dantas.app.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,19 +9,22 @@ import org.springframework.data.mongodb.core.index.GeoSpatialIndexType;
 import org.springframework.data.mongodb.core.index.GeoSpatialIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 @Getter
 @NoArgsConstructor
-@Builder
 @Document("partner")
-public class Partner {
+@Builder
+@AllArgsConstructor
+public class Partner implements Serializable {
 
     @Id
     private String id;
     private String tradingName;
     private String ownerName;
     private String document;
+    private String documentOnlyNumber;
     @GeoSpatialIndexed(type = GeoSpatialIndexType.GEO_2DSPHERE)
     private CoverageArea coverageArea;
     @GeoSpatialIndexed(type = GeoSpatialIndexType.GEO_2DSPHERE)
@@ -68,4 +72,5 @@ public class Partner {
     public double getLongitude(){
         return new ArrayList<>(this.address.getCoordinates()).get(0);
     }
+
 }

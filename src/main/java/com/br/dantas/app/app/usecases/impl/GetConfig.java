@@ -4,6 +4,7 @@ import com.br.dantas.app.app.repository.IConfigRepository;
 import com.br.dantas.app.app.usecases.IGetConfig;
 import com.br.dantas.app.domain.Config;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,6 +21,7 @@ public class GetConfig implements IGetConfig {
     }
 
     @Override
+    @Cacheable(value = "config")
     public Config execute() {
         return configRepository
                 .findConfig()

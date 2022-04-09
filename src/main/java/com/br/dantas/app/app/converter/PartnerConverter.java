@@ -3,6 +3,7 @@ package com.br.dantas.app.app.converter;
 import com.br.dantas.app.app.models.IAddress;
 import com.br.dantas.app.app.models.ICoverageArea;
 import com.br.dantas.app.app.models.IPartner;
+import com.br.dantas.app.app.usecases.FormatDocumentNumber;
 import com.br.dantas.app.domain.Address;
 import com.br.dantas.app.domain.CoverageArea;
 import com.br.dantas.app.domain.Partner;
@@ -16,6 +17,7 @@ public class PartnerConverter {
         return Partner.builder()
                 .id(UUID.randomUUID().toString())
                 .document(partner.document())
+                .documentOnlyNumber(FormatDocumentNumber.getDocumentOnlyNumbers(partner))
                 .ownerName(partner.ownerName())
                 .tradingName(partner.tradingName())
                 .address(toDomain(partner.address()))
