@@ -30,6 +30,9 @@ docker pull mongo
 # Apos o download execute o seguinte comando para a criação de uma nova instância com o banco de dados MongoDB
 docker run --name mongodb -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=leonardo -e MONGO_INITDB_ROOT_PASSWORD=123456 mongo
 
+# Inicie o banco Redis com o seguinte comando em um terminal
+docker run --name redis -p 6379:6379 redis
+
 # Clone este repositório
 git clone https://github.com/leonardodantas/spring-kafka-docker.git
 
@@ -51,6 +54,7 @@ http://localhost:8080/swagger-ui/
 - Geospatial Queries do mongo
 - Durante grande parte de desenvolvimento, o banco de dados era apenas um detalhe, por isso utilizei um arquivo JSON para ler e escrever dados
 - A geração de dados automática utiliza o arquivo json que já possui dados e insere no mongo
+- Utilização de cache com Redis
 
 ## Documentação da API
 
