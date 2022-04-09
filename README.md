@@ -55,6 +55,7 @@ http://localhost:8080/swagger-ui/
 - Durante grande parte de desenvolvimento, o banco de dados era apenas um detalhe, por isso utilizei um arquivo JSON para ler e escrever dados
 - A geração de dados automática utiliza o arquivo json que já possui dados e insere no mongo
 - Utilização de cache com Redis
+- Criação de Annotations para validação de dados
 
 ## Documentação da API
 
