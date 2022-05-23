@@ -34,7 +34,7 @@ docker run --name mongodb -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=leonardo 
 docker run --name redis -p 6379:6379 redis
 
 # Clone este repositório
-git clone https://github.com/leonardodantas/spring-kafka-docker.git
+git clone https://github.com/leonardodantas/app-locating-available-restaurants-java.git
 
 # Inicie a aplicação com uma IDE de sua preferência
 
